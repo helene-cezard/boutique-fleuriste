@@ -1,0 +1,7 @@
+; fichier utilisé par notre code pour récupérer la configuration de la machine courante
+; à copier et renommer en config.ini (à ajouter au .gitignore) puis modifier en fonction de sa configuration
+
+DB_HOST=
+DB_USERNAME=
+DB_PASSWORD=
+DB_NAME=

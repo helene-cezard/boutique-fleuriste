@@ -1,0 +1,14 @@
+{
+    "name": "student/boutique-fleuriste",
+    "type": "composer-plugin",
+    "require": {
+        "symfony/var-dumper": "^5.4",
+        "altorouter/altorouter": "^2.0"
+    },
+    "authors": [
+        {
+            "name": "helene-cezard",
+            "email": "helene.cezard@gmail.com"
+        }
+    ]
+}
