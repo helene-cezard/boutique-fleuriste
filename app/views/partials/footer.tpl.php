@@ -1,3 +1,5 @@
+            </main>
+        </div>
         <footer>
             <ul class="footer-links">
                 <li class="footer-links__element">Nous trouver</li>

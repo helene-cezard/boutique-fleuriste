@@ -12,15 +12,21 @@
     <div class="page-container">
         <div class="content-wrap">
             <header>
-                <h1 class="shop-name">La belle plante</h1>
-                <nav>
-                    <ul class="menu">
-                        <li class="menu__element">Page d'accueil</li>
-                        <li class="menu__element">En ce moment</li>
-                        <li class="menu__element">Bouquets</li>
-                        <li class="menu__element">Plantes en pot</li>
-                        <li class="menu__element">Compositions</li>
-                        <li class="menu__element">Catégories</li>
+                <div class="title-connection">
+                    <h1 class="shop-name">La belle plante</h1>
+                    <div class="connection">Connexion</div>
+                </div>
+                <nav class="navbar">
+                    <label for="toggle" class="burger-icon">☰</label>
+                    <input type="checkbox" id="toggle">
+                    <ul class="navbar__menu">
+                        <li class="navbar__element navbar__element--connection">Connexion</li>
+                        <li class="navbar__element navbar__element--selected">Page d'accueil</li>
+                        <li class="navbar__element">Bouquets</li>
+                        <li class="navbar__element">Plantes en pot</li>
+                        <li class="navbar__element">Compositions</li>
+                        <li class="navbar__element">Catégories</li>
                     </ul>
                 </nav>
             </header>
+            <main>
