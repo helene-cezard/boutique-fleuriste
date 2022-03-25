@@ -75,12 +75,20 @@ header {
 .flower-cards__element {
     width: 25rem;
     margin: 1rem;
-    /* border: solid 1px green;
-    padding: 1rem; */
 }
 
 .flower-cards__element img {
     width: 100%;
+}
+
+.description {
+    text-align: center;
+}
+
+.illustration {
+    width: 80%;
+    display: block;
+    margin: auto;
 }
 
 .page-container {
