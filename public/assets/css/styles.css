@@ -81,8 +81,14 @@ header {
     width: 100%;
 }
 
-.description {
+.stock {
     text-align: center;
+    font-size: 2rem;
+    margin: 1rem;
+}
+
+.description {
+    margin: 1rem;
 }
 
 .illustration {
@@ -173,5 +179,19 @@ footer {
         width: fit-content;
         border-top: solid 1px green;
         border-bottom: solid 1px green;
+    }
+
+    .product {
+        display: flex;
+        margin: 3rem;
+    }
+
+    .illustration {
+        width: 60%;
+        margin: 0;
+    }
+
+    .product_details {
+        margin: 1rem;
     }
 }

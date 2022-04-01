@@ -11,6 +11,7 @@ class Product
     //  Properties
     // =========================================================
 
+    protected $id;
     protected $name;
     protected $description;
     protected $picture;
@@ -52,6 +53,14 @@ class Product
     //  Getters & Setters
     // =========================================================
 
+    /**
+     * Get the value of id
+     */ 
+    public function getId()
+    {
+        return $this->id;
+    }
+    
     /**
      * Get the value of name
      */ 
