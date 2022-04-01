@@ -2,11 +2,22 @@
 
   namespace app\controllers;
 
+use app\models\Product;
+
   class MainController
   {
     public function home()
     {
-        $this->show('home');
+      $productModel = new Product;
+      $products = $productModel->findAll();
+      $this->show('home', ['products' => $products]);
+    }
+
+    public function item( $params )
+    {
+      $productModel = new Product;
+      $product = $productModel->find( $params['id'] );
+      $this->show('item', ['product' => $product]);
     }
 
     /**

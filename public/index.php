@@ -26,6 +26,13 @@
     "main-home"
   );
 
+  $router->map( 
+    "GET",
+    "/item/[i:id]",
+    [ 'controller' => "\\app\\controllers\\MainController", 'method' => "item" ],
+    "main-item"
+  );
+
 
   //TODO Autres routes ici :
 
