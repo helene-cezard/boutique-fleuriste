@@ -9,8 +9,6 @@
     <link rel="stylesheet" href="<?= $_SERVER['BASE_URI']; ?>/assets/css/styles.css">
 </head>
 <body>
-    <?php dump($_SERVER['REQUEST_URI']) ?>
-    <?php dump($_SERVER['BASE_URI']) ?>
     <div class="page-container">
         <div class="content-wrap">
             <header>
