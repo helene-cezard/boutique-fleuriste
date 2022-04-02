@@ -26,6 +26,7 @@
     "main-home"
   );
 
+  // Route des pages d'articles
   $router->map( 
     "GET",
     "/item/[i:id]",

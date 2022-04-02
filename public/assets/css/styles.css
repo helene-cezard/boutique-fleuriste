@@ -23,8 +23,14 @@ header {
     margin: 0 auto 1rem auto;
 }
 
-.connection {
+/* .connection {
     display: none;
+} */
+
+.connection {
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 0 0 2rem 0;
 }
 
 .burger-icon {
@@ -162,10 +168,6 @@ footer {
         position: absolute;
         top: 0;
         right: 0;
-    }
-
-    .navbar__element--connection {
-        display: none;
     }
 
     .burger-icon {
