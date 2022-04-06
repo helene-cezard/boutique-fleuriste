@@ -34,8 +34,37 @@
     "main-item"
   );
 
+  // Route de la page des bouquets
+  $router->map( 
+    "GET",
+    "/bouquets",
+    [ 'controller' => "\\app\\controllers\\MainController", 'method' => "bouquets" ],
+    "main-bouquets"
+  );
 
-  //TODO Autres routes ici :
+  // Route de la page des plantes en pot
+  $router->map( 
+    "GET",
+    "/pots",
+    [ 'controller' => "\\app\\controllers\\MainController", 'method' => "pots" ],
+    "main-pots"
+  );
+
+  // Route de la page des compositions
+  $router->map( 
+    "GET",
+    "/compositions",
+    [ 'controller' => "\\app\\controllers\\MainController", 'method' => "compositions" ],
+    "main-compositions"
+  );
+
+  // Route de la page de connexion
+  $router->map(
+    "GET",
+    "/signup",
+    [ 'controller' => "\\app\\controllers\\MainController", 'method' => "signup" ],
+    "main-signup"
+  );
 
   // AltoRouter cherche la route
   $routeInfo = $router->match();

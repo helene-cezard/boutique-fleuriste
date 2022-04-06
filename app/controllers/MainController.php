@@ -9,7 +9,7 @@ use app\models\Product;
     public function home()
     {
       $productModel = new Product;
-      $products = $productModel->findAll();
+      $products = $productModel->findForHomepage();
       $this->show('home', ['products' => $products]);
     }
 
@@ -18,6 +18,32 @@ use app\models\Product;
       $productModel = new Product;
       $product = $productModel->find( $params['id'] );
       $this->show('item', ['product' => $product]);
+    }
+
+    public function bouquets()
+    {
+      $productModel = new Product;
+      $products = $productModel->findByCategory( 1 );
+      $this->show('bouquets', ['products' => $products]);
+    }
+
+    public function pots()
+    {
+      $productModel = new Product;
+      $products = $productModel->findByCategory( 2 );
+      $this->show('pots', ['products' => $products]);
+    }
+
+    public function compositions()
+    {
+      $productModel = new Product;
+      $products = $productModel->findByCategory( 3 );
+      $this->show('compositions', ['products' => $products]);
+    }
+
+    public function signup()
+    {
+      $this->show('signup');
     }
 
     /**

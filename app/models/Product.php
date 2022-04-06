@@ -48,6 +48,24 @@ class Product
       $allProductObjects = $statement->fetchAll( PDO::FETCH_CLASS, self::class );
       return $allProductObjects;
     }
+
+    public function findForHomepage()
+    {
+        $pdo = Database::getPDO();
+        $sql = "SELECT * FROM `product` WHERE `homepage` = 1";
+        $statement = $pdo->query( $sql );
+        $allProductObjects = $statement->fetchAll( PDO::FETCH_CLASS, self::class );
+        return $allProductObjects;
+    }
+
+    public function findByCategory( $id )
+    {
+        $pdo = Database::getPDO();
+        $sql = "SELECT * FROM `product` WHERE `category_id` = ".$id;
+        $statement = $pdo->query( $sql );
+        $allProductObjects = $statement->fetchAll( PDO::FETCH_CLASS, self::class );
+        return $allProductObjects;
+    }
     
     // =========================================================
     //  Getters & Setters

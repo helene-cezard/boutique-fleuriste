@@ -21,10 +21,9 @@
                     <input type="checkbox" id="toggle">
                     <ul class="navbar__menu">
                         <li class="navbar__element <?= $_SERVER['BASE_URI'] . '/' == $_SERVER['REQUEST_URI'] ? "navbar__element--selected" : "" ?>"><a href="<?= $_SERVER['BASE_URI']; ?>">Page d'accueil</a></li>
-                        <li class="navbar__element">Bouquets</li>
-                        <li class="navbar__element">Plantes en pot</li>
-                        <li class="navbar__element">Compositions</li>
-                        <li class="navbar__element">Catégories</li>
+                        <li class="navbar__element <?= $_SERVER['BASE_URI'] . '/bouquets' == $_SERVER['REQUEST_URI'] ? "navbar__element--selected" : "" ?>"><a href="<?= $_SERVER['BASE_URI']; ?>/bouquets">Bouquets</a></li>
+                        <li class="navbar__element <?= $_SERVER['BASE_URI'] . '/pots' == $_SERVER['REQUEST_URI'] ? "navbar__element--selected" : "" ?>"><a href="<?= $_SERVER['BASE_URI']; ?>/pots">Plantes en pot</a></li>
+                        <li class="navbar__element <?= $_SERVER['BASE_URI'] . '/compositions' == $_SERVER['REQUEST_URI'] ? "navbar__element--selected" : "" ?>"><a href="<?= $_SERVER['BASE_URI']; ?>/compositions">Compositions</a></li>
                     </ul>
                 </nav>
             </header>
