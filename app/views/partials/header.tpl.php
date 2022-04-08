@@ -13,17 +13,17 @@
         <div class="content-wrap">
             <header>
                 <div class="title-connection">
-                    <div class="connection">Connexion</div>
+                    <a href="<?= $router->generate('main-signup') ?>" class="connection">S'enregistrer</a>
                     <h1 class="shop-name">La belle plante</h1>
                 </div>
                 <nav class="navbar">
                     <label for="toggle" class="burger-icon">☰</label>
                     <input type="checkbox" id="toggle">
                     <ul class="navbar__menu">
-                        <li class="navbar__element <?= $_SERVER['BASE_URI'] . '/' == $_SERVER['REQUEST_URI'] ? "navbar__element--selected" : "" ?>"><a href="<?= $_SERVER['BASE_URI']; ?>">Page d'accueil</a></li>
-                        <li class="navbar__element <?= $_SERVER['BASE_URI'] . '/bouquets' == $_SERVER['REQUEST_URI'] ? "navbar__element--selected" : "" ?>"><a href="<?= $_SERVER['BASE_URI']; ?>/bouquets">Bouquets</a></li>
-                        <li class="navbar__element <?= $_SERVER['BASE_URI'] . '/pots' == $_SERVER['REQUEST_URI'] ? "navbar__element--selected" : "" ?>"><a href="<?= $_SERVER['BASE_URI']; ?>/pots">Plantes en pot</a></li>
-                        <li class="navbar__element <?= $_SERVER['BASE_URI'] . '/compositions' == $_SERVER['REQUEST_URI'] ? "navbar__element--selected" : "" ?>"><a href="<?= $_SERVER['BASE_URI']; ?>/compositions">Compositions</a></li>
+                        <li class="navbar__element <?= $_SERVER['BASE_URI'] . '/' == $_SERVER['REQUEST_URI'] ? "navbar__element--selected" : "" ?>"><a href="<?= $router->generate('main-home') ?>">Page d'accueil</a></li>
+                        <li class="navbar__element <?= $_SERVER['BASE_URI'] . '/bouquets' == $_SERVER['REQUEST_URI'] ? "navbar__element--selected" : "" ?>"><a href="<?= $router->generate('main-bouquets') ?>">Bouquets</a></li>
+                        <li class="navbar__element <?= $_SERVER['BASE_URI'] . '/pots' == $_SERVER['REQUEST_URI'] ? "navbar__element--selected" : "" ?>"><a href="<?= $router->generate('main-pots') ?>">Plantes en pot</a></li>
+                        <li class="navbar__element <?= $_SERVER['BASE_URI'] . '/compositions' == $_SERVER['REQUEST_URI'] ? "navbar__element--selected" : "" ?>"><a href="<?= $router->generate('main-compositions') ?>">Compositions</a></li>
                     </ul>
                 </nav>
             </header>

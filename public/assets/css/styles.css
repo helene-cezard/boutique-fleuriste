@@ -103,6 +103,31 @@ header {
     margin: auto;
 }
 
+.signup-form {
+    display: block;
+    margin: 2rem auto;
+}
+
+.signup-form .field {
+    display: flex;
+    flex-direction: column;
+    margin: 2rem;
+}
+
+.signup-form label {
+    margin: 0.5rem 0;
+}
+
+.signup-form input, .signup-form button {
+    padding: 0.5rem;
+    font-size: 1rem;
+}
+
+.error {
+    color: red;
+    margin: 0.5rem 0;
+}
+
 .page-container {
     position: relative;
     min-height: 100vh;
@@ -143,6 +168,10 @@ footer {
 }
 
 @media screen and (min-width: 500px) {
+    .signup-form {
+    width: 80%;
+    }
+
     .footer-links {
         display: flex;
         margin-top: 1rem;
@@ -196,4 +225,24 @@ footer {
     .product_details {
         margin: 1rem;
     }
+
+    .signup-form {
+    width: 50%;
+    display: block;
+    margin: 5rem auto;
+    }
+
+    .signup-form .field {
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .signup-form {
+        width: 35%;
+        display: block;
+        margin: 5rem auto;
+        }
 }

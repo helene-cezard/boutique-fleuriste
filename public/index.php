@@ -58,12 +58,20 @@
     "main-compositions"
   );
 
-  // Route de la page de connexion
+  // Route de la page d'enregistrement d'un utilisateur
   $router->map(
     "GET",
     "/signup",
     [ 'controller' => "\\app\\controllers\\MainController", 'method' => "signup" ],
     "main-signup"
+  );
+
+  // Récupération des données d'enregistrement d'un utilisateur
+  $router->map(
+    "POST",
+    "/signup",
+    [ 'controller' => "\\app\\controllers\\MainController", 'method' => "signupPost" ],
+    "main-signup-post"
   );
 
   // AltoRouter cherche la route
