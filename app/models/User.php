@@ -50,6 +50,19 @@ class User extends CoreModel
             return false;
     }
 
+    public static function findByEmail($email)
+    {
+        $pdo = Database::getPDO();
+        $sql = 'SELECT * FROM `user` WHERE `email` = :email';
+        $pdoStatement = $pdo->prepare($sql);
+        $pdoStatement->execute(
+            [
+                'email' => $email
+            ]
+        );
+        return $pdoStatement->fetchObject(self::class);
+    }
+
     // =========================================================
     //  Getters & Setters
     // ========================================================= 

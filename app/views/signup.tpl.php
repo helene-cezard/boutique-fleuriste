@@ -1,4 +1,5 @@
 <form action="" method="POST" class="signup-form">
+    <?php  ?>
     <div class="firstname field">
         <label for="firstname">Entrez votre prénom</label>
         <input type="text" name="firstname" id="firstname" required>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,7 +13,14 @@
         <div class="content-wrap">
             <header>
                 <div class="title-connection">
-                    <a href="<?= $router->generate('main-signup') ?>" class="connection">S'enregistrer</a>
+                    <div class="connection">
+                        <?php if (empty($_SESSION)): ?>
+                            <a href="<?= $router->generate('user-signup') ?>">S'enregistrer</a>
+                            <a href="<?= $router->generate('user-login') ?>">Connection</a>
+                        <?php else: ?>
+                            <a href="<?= $router->generate('user-signup') ?>">Compte</a>
+                        <?php endif; ?>
+                    </div>
                     <h1 class="shop-name">La belle plante</h1>
                 </div>
                 <nav class="navbar">

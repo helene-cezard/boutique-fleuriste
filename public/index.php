@@ -2,8 +2,7 @@
   
   require_once __DIR__ . "/../vendor/autoload.php";
 
-  // require_once __DIR__ . "/../app/controllers/MainController.php";
-
+  session_start();
 
   //====================================================================
   // ROUTER
@@ -58,20 +57,38 @@
     "main-compositions"
   );
 
+  // Routes UserController ---------------------------------------------
+
   // Route de la page d'enregistrement d'un utilisateur
   $router->map(
     "GET",
     "/signup",
-    [ 'controller' => "\\app\\controllers\\MainController", 'method' => "signup" ],
-    "main-signup"
+    [ 'controller' => "\\app\\controllers\\UserController", 'method' => "signup" ],
+    "user-signup"
   );
 
   // Récupération des données d'enregistrement d'un utilisateur
   $router->map(
     "POST",
     "/signup",
-    [ 'controller' => "\\app\\controllers\\MainController", 'method' => "signupPost" ],
-    "main-signup-post"
+    [ 'controller' => "\\app\\controllers\\UserController", 'method' => "signupPost" ],
+    "user-signup-post"
+  );
+
+  // Route de la page de connexion d'un utilisateur
+  $router->map(
+    "GET",
+    "/login",
+    [ 'controller' => "\\app\\controllers\\UserController", 'method' => "login" ],
+    "user-login"
+  );
+
+  // Récupération des données de connexion d'un utilisateur
+  $router->map(
+    "POST",
+    "/login",
+    [ 'controller' => "\\app\\controllers\\UserController", 'method' => "loginPost" ],
+    "user-login-post"
   );
 
   // AltoRouter cherche la route
