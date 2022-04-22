@@ -144,6 +144,7 @@ use app\models\User;
      */
     public function accountPost()
     {
+      global $router;
       if (isset($_SESSION['userObject'])) {
 
         $user = User::find($_SESSION['userId']);
@@ -152,25 +153,35 @@ use app\models\User;
         $lastname = filter_input(INPUT_POST, 'lastname', FILTER_UNSAFE_RAW);
         $firstname = filter_input(INPUT_POST, 'firstname', FILTER_UNSAFE_RAW);
         $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
+        $oldPassword = filter_input(INPUT_POST, 'oldPassword', FILTER_UNSAFE_RAW);
         $password = filter_input(INPUT_POST, 'password', FILTER_UNSAFE_RAW);
-        
-        $password = password_hash($password, PASSWORD_ARGON2ID);
 
-        $user->setEmail($email);
-        $user->setPassword($password);
-        $user->setFirstname($firstname);
-        $user->setLastname($lastname);
+        $errorList = [];
 
-        $ok = $user->update();
-
-        if ($ok) {
-
-            global $router;
+        if (password_verify($oldPassword, $user->getPassword())) {
+          $password = password_hash($password, PASSWORD_ARGON2ID);
+  
+          $user->setEmail($email);
+          $user->setPassword($password);
+          $user->setFirstname($firstname);
+          $user->setLastname($lastname);
+  
+          $ok = $user->update();
+  
+          if ($ok) {
             $_SESSION['userObject'] = $user;
             header('Location: ' . $router->generate('user-account') . '?accountModified');
+          }
+        } else {
+          $errorList['oldPassword'] = 'Mauvais mot de passe';
+
+            $this->show('signup', [
+                'user' => $user,
+                'errorsList' => $errorList,
+            ]);
         }
+        
       } else {
-        global $router;
         header('Location: ' . $router->generate('main-home'));
       }
     }
