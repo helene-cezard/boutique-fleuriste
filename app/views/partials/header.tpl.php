@@ -18,7 +18,8 @@
                             <a href="<?= $router->generate('user-signup') ?>">S'enregistrer</a>
                             <a href="<?= $router->generate('user-login') ?>">Connection</a>
                         <?php else: ?>
-                            <a href="<?= $router->generate('user-signup') ?>">Compte</a>
+                            <a href="<?= $router->generate('user-account') ?>">Compte</a>
+                            <a href="<?= $router->generate('user-logout') ?>">Déconnexion</a>
                         <?php endif; ?>
                     </div>
                     <h1 class="shop-name">La belle plante</h1>

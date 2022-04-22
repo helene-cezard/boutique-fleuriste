@@ -50,6 +50,45 @@ class User extends CoreModel
             return false;
     }
 
+    public function update()
+    {
+        $pdo = Database::getPDO();
+
+        $sql = "
+            UPDATE `user`
+            SET
+                lastname = :lastname,
+                firstname = :firstname,
+                email = :email,
+                password = :password,
+                updated_at = NOW()
+            WHERE id = :id
+        ";
+
+        $pdoStatement = $pdo->prepare($sql);
+
+        $updated = $pdoStatement->execute(
+            [
+                'lastname' => $this->lastname,
+                'firstname' => $this->firstname,
+                'email' => $this->email,
+                'password' => $this->password,
+                'id' => $this->id,
+            ]
+        );
+
+        return $updated;
+    }
+
+    public static function find($id)
+    {
+        $pdo = Database::getPDO();
+        $sql = 'SELECT * FROM `user` WHERE `id` =' . $id;
+        $pdoStatement = $pdo->query($sql);
+        $user = $pdoStatement->fetchObject('app\models\User');
+        return $user;
+    }
+
     public static function findByEmail($email)
     {
         $pdo = Database::getPDO();

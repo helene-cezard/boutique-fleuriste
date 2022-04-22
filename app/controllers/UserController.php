@@ -15,7 +15,10 @@ use app\models\User;
      */
     public function signup()
     {
-      $this->show('signup');
+      $user = new User;
+      $this->show('signup', [
+        'user' => $user
+      ]);
     }
 
     /**
@@ -113,5 +116,76 @@ use app\models\User;
       } else {
         echo 'Utilisateur introuvable';
       }
+    }
+
+    /**
+     * Méthode affichant la page de modification
+     * du compte d'un utilisateur
+     *
+     * @return void
+     */
+    public function account()
+    {
+      if (isset($_SESSION['userObject'])) {
+        $this->show('signup', [
+          'user' => $_SESSION['userObject']
+        ]);
+      } else {
+        global $router;
+        header('Location: ' . $router->generate('main-home'));
+      }
+    }
+
+    /**
+     * Méthode affichant la page de modification
+     * du compte d'un utilisateur
+     *
+     * @return void
+     */
+    public function accountPost()
+    {
+      if (isset($_SESSION['userObject'])) {
+
+        $user = User::find($_SESSION['userId']);
+
+        // Récupération des données du formulaire
+        $lastname = filter_input(INPUT_POST, 'lastname', FILTER_UNSAFE_RAW);
+        $firstname = filter_input(INPUT_POST, 'firstname', FILTER_UNSAFE_RAW);
+        $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
+        $password = filter_input(INPUT_POST, 'password', FILTER_UNSAFE_RAW);
+        
+        $password = password_hash($password, PASSWORD_ARGON2ID);
+
+        $user->setEmail($email);
+        $user->setPassword($password);
+        $user->setFirstname($firstname);
+        $user->setLastname($lastname);
+
+        $ok = $user->update();
+
+        if ($ok) {
+
+            global $router;
+            $_SESSION['userObject'] = $user;
+            header('Location: ' . $router->generate('user-account') . '?accountModified');
+        }
+      } else {
+        global $router;
+        header('Location: ' . $router->generate('main-home'));
+      }
+    }
+
+    /**
+     * Méthode pour déconnecter l'utilisateur
+     *
+     * @return void
+     */
+    public function logout()
+    {
+        unset($_SESSION['userId']);
+        unset($_SESSION['userObject']);
+
+        global $router;
+        header('Location: ' . $router->generate('main-home'));
     }
   }

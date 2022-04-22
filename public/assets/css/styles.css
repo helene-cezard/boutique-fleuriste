@@ -103,6 +103,12 @@ header {
     margin: auto;
 }
 
+.accountModified {
+    text-align: center;
+    color: green;
+    font-size: 1.4rem;
+}
+
 .signup-form {
     display: block;
     margin: 2rem auto;

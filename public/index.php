@@ -91,6 +91,30 @@
     "user-login-post"
   );
 
+  // Page de modification du compte utilisateur
+  $router->map(
+    "GET",
+    "/account",
+    [ 'controller' => "\\app\\controllers\\UserController", 'method' => "account" ],
+    "user-account"
+  );
+
+  // Modification du compte utilisateur
+  $router->map(
+    "POST",
+    "/account",
+    [ 'controller' => "\\app\\controllers\\UserController", 'method' => "accountPost" ],
+    "user-account-post"
+  );
+
+  // Déconnexion de l'utilisateur
+  $router->map(
+    "GET",
+    "/logout",
+    [ 'controller' => "\\app\\controllers\\UserController", 'method' => "logout" ],
+    "user-logout"
+  );
+
   // AltoRouter cherche la route
   $routeInfo = $router->match();
 
