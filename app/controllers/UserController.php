@@ -158,27 +158,34 @@ use app\models\User;
 
         $errorList = [];
 
-        if (password_verify($oldPassword, $user->getPassword())) {
-          $password = password_hash($password, PASSWORD_ARGON2ID);
-  
-          $user->setEmail($email);
-          $user->setPassword($password);
-          $user->setFirstname($firstname);
-          $user->setLastname($lastname);
-  
-          $ok = $user->update();
-  
-          if ($ok) {
-            $_SESSION['userObject'] = $user;
-            header('Location: ' . $router->generate('user-account') . '?accountModified');
-          }
-        } else {
-          $errorList['oldPassword'] = 'Mauvais mot de passe';
-
+        if (!empty($password)) {
+          if (password_verify($oldPassword, $user->getPassword())) {
+            $password = password_hash($password, PASSWORD_ARGON2ID);
+            $user->setPassword($password);
+    
+          } else {
+            $errorList['oldPassword'] = 'Mauvais mot de passe';
+            
             $this->show('signup', [
-                'user' => $user,
-                'errorsList' => $errorList,
+              'user' => $user,
+              'errorsList' => $errorList,
             ]);
+          }
+        }
+        
+        $user->setEmail($email);
+        $user->setFirstname($firstname);
+        $user->setLastname($lastname);
+
+        $ok = $user->update();
+
+        if ($ok) {
+          $_SESSION['userObject'] = $user;
+
+          $this->show('signup', [
+            'user' => $user,
+            'accountModified' => true
+          ]);
         }
         
       } else {

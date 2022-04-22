@@ -1,5 +1,5 @@
 <h2 class="section-title"><?= empty($user->getId()) ? 'Créez votre compte' : 'Modifiez votre compte' ?></h2>
-<?= isset($_GET['accountModified']) ? '<p class="accountModified">Votre compte a bien été modifié</p>' : '' ?>
+<?= isset($accountModified) ? '<p class="accountModified">Votre compte a bien été modifié</p>' : '' ?>
 <form action="" method="POST" class="signup-form">
     <div class="field">
         <label for="firstname"><?= empty($user->getId()) ? 'Entrez votre prénom' : 'Nouveau prénom' ?></label>
