@@ -4,11 +4,12 @@
     <img class="illustration" src="<?= $product->getPicture() ?>" alt="Photo de <?= $product->getName() ?>">
     <div class="product_details">
         <p class="description"><?= $product->getDescription() ?></p>
-        <form action="">
+        <form action="" method="POST">
             <label for="quantity">Quantité</label>
-            <input type="number" max="5" <?= $product->getStatus() == 1 ? "" : "disabled" ?>>
+            <input type="number" max="5" name="quatity" <?= $product->getStatus() == 1 ? "" : "disabled" ?>>
+            <input type="hidden" name="productId" value="<?= $product->getId() ?>">
             <p>Disponibilité : <?= $product->getStatus() == 1 ? "En stock" : "Indisponible"; ?></p>
-            <button>Acheter</button>
+            <button type="submit">Ajouter au panier</button>
         </form>
     </div>
 </div>

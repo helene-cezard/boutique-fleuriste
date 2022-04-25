@@ -232,4 +232,16 @@ use app\models\User;
         global $router;
         header('Location: ' . $router->generate('main-home'));
     }
+
+    /**
+     * Méthode affichant le panier de l'utilisateur
+     *
+     * @return void
+     */
+    public function basket()
+    {
+      $this->show('basket', [
+        'basket' => $_SESSION['basket']
+      ]);
+    }
   }

@@ -21,6 +21,10 @@ use app\models\User;
       $this->show('item', ['product' => $product]);
     }
 
+    public function itemPost ( $params ) {
+      dump($_POST);
+    }
+
     public function bouquets()
     {
       $productModel = new Product;

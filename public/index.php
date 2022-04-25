@@ -33,6 +33,14 @@
     "main-item"
   );
 
+  // Ajout d'un article dans le panier
+  $router->map( 
+    "POST",
+    "/item/[i:id]",
+    [ 'controller' => "\\app\\controllers\\MainController", 'method' => "itemPost" ],
+    "main-item-post"
+  );
+
   // Route de la page des bouquets
   $router->map( 
     "GET",
@@ -114,6 +122,14 @@
     [ 'controller' => "\\app\\controllers\\UserController", 'method' => "logout" ],
     "user-logout"
   );
+
+    // Page du panier de l'utilisateur
+    $router->map(
+      "GET",
+      "/basket",
+      [ 'controller' => "\\app\\controllers\\UserController", 'method' => "basket" ],
+      "user-basket"
+    );
 
   // AltoRouter cherche la route
   $routeInfo = $router->match();
