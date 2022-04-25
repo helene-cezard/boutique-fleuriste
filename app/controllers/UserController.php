@@ -101,21 +101,47 @@ use app\models\User;
       $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
       $password = filter_input(INPUT_POST, 'password', FILTER_UNSAFE_RAW);
 
-      $user = User::findByEmail($email);
+      // Gestion des erreurs
+      $errorList = [];
+    
+      if (empty($email) || $email === false) {
+          $errorList['email'] = 'Veuillez renseigner votre e-mail';
+      }
+      if (empty($password) || $password === false) {
+          $errorList['password'] = 'Veuillez renseigner votre mote de passe';
+      }
 
-      if ($user instanceof User) {
-        if (password_verify($password, $user->getPassword())) {
-          $_SESSION['userId'] = $user->getId();
-          $_SESSION['userObject'] = $user;
 
-          global $router;
-          header('Location: ' . $router->generate('main-home'));
+      // Enregistrement en DB
+      if (empty($errorList)) {
+        $user = User::findByEmail($email);
+  
+        if ($user instanceof User) {
+          if (password_verify($password, $user->getPassword())) {
+            $_SESSION['userId'] = $user->getId();
+            $_SESSION['userObject'] = $user;
+  
+            global $router;
+            header('Location: ' . $router->generate('main-home'));
+          } else {
+            $errorList['password'] = "Mot de passe incorrect";
+            $this->show('login', [
+              'errorsList' => $errorList,
+          ]);
+          }
         } else {
-          echo 'PAS OK !';
+          $errorList['email'] = "Utilisateur introuvable";
+            $this->show('login', [
+              'errorsList' => $errorList,
+          ]);
         }
       } else {
-        echo 'Utilisateur introuvable';
+        // Affichage des erreurs
+        $this->show('login', [
+            'errorsList' => $errorList,
+        ]);
       }
+
     }
 
     /**
