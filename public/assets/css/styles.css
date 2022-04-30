@@ -162,6 +162,15 @@ footer {
     margin: 1.2rem;
 }
 
+.basketTable {
+    margin: auto;
+}
+
+.basketTable th, .basketTable td {
+    padding: 1rem;
+    border: 1px solid black;
+}
+
 @media screen and (min-width: 370px) {
     .shop-name {
         font-size: 5rem;

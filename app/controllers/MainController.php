@@ -26,14 +26,18 @@ use app\models\User;
       global $router;
 
       $quantity = filter_input(INPUT_POST, 'quantity', FILTER_VALIDATE_INT);
-        $productId = filter_input(INPUT_POST, 'productId', FILTER_VALIDATE_INT);
+      $productId = filter_input(INPUT_POST, 'productId', FILTER_VALIDATE_INT);
 
       $productModel = new Product;
-        $product = $productModel->find( $productId );
+      $product = $productModel->find( $productId );
 
       if (isset($_SESSION['userObject'])) {
         if (!empty($quantity) && $quantity > 0)  {
-          $_SESSION['basket'][] = $productId;
+          $productName = $product->getName();
+          $_SESSION['basket'][$productName] = [
+            'product' => $product,
+            'quantity' => $quantity,
+          ];
           header('Location: ' . $router->generate('user-basket'));
         } else {
           $this->show('item', [

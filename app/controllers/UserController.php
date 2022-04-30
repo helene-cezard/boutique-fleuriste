@@ -228,6 +228,7 @@ use app\models\User;
     {
         unset($_SESSION['userId']);
         unset($_SESSION['userObject']);
+        unset($_SESSION['basket']);
 
         global $router;
         header('Location: ' . $router->generate('main-home'));

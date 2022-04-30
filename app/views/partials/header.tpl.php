@@ -14,7 +14,7 @@
             <header>
                 <div class="title-connection">
                     <div class="connection">
-                        <?php if (empty($_SESSION)): ?>
+                        <?php if (empty($_SESSION['userId'])): ?>
                             <a href="<?= $router->generate('user-signup') ?>">S'enregistrer</a>
                             <a href="<?= $router->generate('user-login') ?>">Connection</a>
                         <?php else: ?>
