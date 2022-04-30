@@ -38,5 +38,6 @@
             <p class="error"><?= $errorsList['password'] ?></p>
         <?php endif ?>
     </div>
+    <input type="hidden" name="token" value="<?= $_SESSION['token'] ?>">
     <button class="field" type="submit">Envoyer</button>
 </form>

@@ -22,7 +22,31 @@ use app\models\User;
     }
 
     public function itemPost ( $params ) {
-      dump($_POST);
+
+      global $router;
+
+      $quantity = filter_input(INPUT_POST, 'quantity', FILTER_VALIDATE_INT);
+        $productId = filter_input(INPUT_POST, 'productId', FILTER_VALIDATE_INT);
+
+      $productModel = new Product;
+        $product = $productModel->find( $productId );
+
+      if (isset($_SESSION['userObject'])) {
+        if (!empty($quantity) && $quantity > 0)  {
+          $_SESSION['basket'][] = $productId;
+          header('Location: ' . $router->generate('user-basket'));
+        } else {
+          $this->show('item', [
+            'product' => $product,
+            'quantityError' => 'Veuillez entrer une quantité de 1 minimum.
+'          ]);
+        }
+      } else {
+        $this->show('item', [
+          'product' => $product,
+          'connectionError' => 'Veuillez vous connecter'
+        ]);
+      }
     }
 
     public function bouquets()
