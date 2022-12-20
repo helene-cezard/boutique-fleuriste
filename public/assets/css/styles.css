@@ -33,6 +33,10 @@ header {
     margin: 0 0 2rem 0;
 }
 
+.connection > a {
+    margin: 1rem;
+}
+
 .burger-icon {
     font-size: 4rem;
     padding: 2rem;
@@ -202,18 +206,6 @@ footer {
 }
 
 @media screen and (min-width: 780px) {
-    .title-connection {
-        position: relative;
-    }
-
-    .connection {
-        font-size: 1rem;
-        display: block;
-        position: absolute;
-        top: 0;
-        right: 0;
-    }
-
     .burger-icon {
         display: none;
     }
@@ -255,6 +247,18 @@ footer {
 }
 
 @media screen and (min-width: 1200px) {
+    .title-connection {
+        position: relative;
+    }
+
+    .connection {
+        font-size: 1rem;
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+    
     .signup-form {
         width: 35%;
         display: block;
