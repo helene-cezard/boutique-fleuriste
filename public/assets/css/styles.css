@@ -23,10 +23,6 @@ header {
     margin: 0 auto 1rem auto;
 }
 
-/* .connection {
-    display: none;
-} */
-
 .connection {
     font-size: 1.5rem;
     text-align: center;
@@ -97,8 +93,51 @@ header {
     margin: 1rem;
 }
 
-.description {
+.product_details * {
     margin: 1rem;
+}
+
+.order-form {
+    margin-top: 3rem;
+}
+
+.order-form * {
+    margin: .5rem 0;
+}
+
+.quantity-label {
+    margin-right: .5rem;
+}
+
+.quantity-input {
+    padding: 5px;
+    font-size: 16px;
+    border-width: 1px;
+    border-color: #b0b0b0;
+    box-shadow: inset 2px 2px 5px rgba(89, 89, 89, 0.75);
+}
+
+.submit {
+	box-shadow: inset 0px 1px 0px 0px #d9fbbe;
+	background: linear-gradient(to bottom, #b8e356 5%, #a5cc52 100%);
+	background-color: #b8e356;
+	border-radius: 6px;
+	border: 1px solid #83c41a;
+	cursor: pointer;
+	color:#ffffff;
+	font-size:20px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-shadow:0px 1px 0px #86ae47;
+}
+
+.submit:hover {
+	background: linear-gradient(to bottom, #a5cc52 5%, #b8e356 100%);
+	background-color: #a5cc52;
+}
+.submit:active {
+	position:relative;
+	top:1px;
 }
 
 .illustration {
@@ -135,7 +174,6 @@ header {
 
 .error {
     color: red;
-    margin: 0.5rem 0;
 }
 
 .page-container {
@@ -229,8 +267,8 @@ footer {
         margin: 0;
     }
 
-    .product_details {
-        margin: 1rem;
+    .description, .error {
+        margin-top: 0;
     }
 
     .signup-form {
