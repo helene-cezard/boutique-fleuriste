@@ -204,13 +204,29 @@ footer {
     margin: 1.2rem;
 }
 
-.basketTable {
-    margin: auto;
+.basket {
+    text-align: center;
+}
+
+.basket * {
+    margin: 1rem auto;
+}
+
+.basket button {
+    /* display: block; */
+    margin: 3rem auto;
+    padding: .5rem;
+    font-size: 16px;
 }
 
 .basketTable th, .basketTable td {
     padding: 1rem;
     border: 1px solid black;
+}
+
+.error-page {
+    text-align: center;
+    font-size: 3rem;
 }
 
 @media screen and (min-width: 370px) {

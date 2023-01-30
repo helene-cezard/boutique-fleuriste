@@ -131,13 +131,30 @@
       "user-basket"
     );
 
+    // Suppression du panier de l'utilisateur
+    $router->map(
+      "POST",
+      "/basket",
+      [ 'controller' => "\\app\\controllers\\UserController", 'method' => "basketDelete" ],
+      "user-basket-delete"
+    );
+
+    // Page 404
+    $router->map(
+      "GET",
+      "/not_found",
+      [ 'controller' => "\\app\\controllers\\ErrorController", 'method' => "notFound" ],
+      "not-found"
+    );
+
   // AltoRouter cherche la route
   $routeInfo = $router->match();
 
   if( $routeInfo === false )
   {
     http_response_code( 404 );
-    exit( "Page non trouvée" );
+    header('Location: ' . $router->generate('not-found'));
+    // exit( "Page non trouvée" );
   }
   
   // Informantions nécessaires au dispatcher

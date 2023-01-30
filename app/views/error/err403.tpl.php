@@ -1,1 +1,1 @@
-<p>Vous ne pouvez pas accéder à cette ressource</p>
+<p class="error-page">Vous ne pouvez pas accéder à cette ressource</p>

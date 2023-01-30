@@ -1,0 +1,1 @@
+<p class="error-page">Erreur 404 : page non trouvée</p>

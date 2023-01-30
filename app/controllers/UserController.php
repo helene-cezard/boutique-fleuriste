@@ -245,4 +245,17 @@ use app\models\User;
         'basket' => $_SESSION['basket']
       ]);
     }
+
+    /**
+     * Méthode supprimant le panier de l'utilisateur
+     *
+     * @return void
+     */
+    public function basketDelete()
+    {
+      $_SESSION['basket'] = [];
+      $this->show('basket', [
+        'basket' => $_SESSION['basket']
+      ]);
+    }
   }
