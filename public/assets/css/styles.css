@@ -213,6 +213,10 @@ footer {
     border: 1px solid black;
 }
 
+.delete-item {
+    text-align: center;
+}
+
 @media screen and (min-width: 370px) {
     .shop-name {
         font-size: 5rem;

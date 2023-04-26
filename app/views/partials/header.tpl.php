@@ -19,6 +19,7 @@
                             <a href="<?= $router->generate('user-login') ?>">Connection</a>
                         <?php else: ?>
                             <a href="<?= $router->generate('user-account') ?>">Compte</a>
+                            <a href="<?= $router->generate('user-basket') ?>">Panier</a>
                             <a href="<?= $router->generate('user-logout') ?>">Déconnexion</a>
                         <?php endif; ?>
                     </div>
