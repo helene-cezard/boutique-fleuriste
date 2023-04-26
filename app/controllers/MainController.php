@@ -21,7 +21,7 @@ use app\models\User;
       $this->show('item', ['product' => $product]);
     }
 
-    public function itemPost ( $params ) {
+    public function itemPost () {
 
       global $router;
 
@@ -42,8 +42,8 @@ use app\models\User;
         } else {
           $this->show('item', [
             'product' => $product,
-            'quantityError' => 'Veuillez entrer une quantité de 1 minimum.
-'          ]);
+            'quantityError' => 'Veuillez entrer une quantité de 1 minimum.'
+          ]);
         }
       } else {
         $this->show('item', [
@@ -51,6 +51,19 @@ use app\models\User;
           'connectionError' => 'Veuillez vous connecter'
         ]);
       }
+    }
+
+    public function itemDelete ( $params ) {
+
+      global $router;
+
+      $productModel = new Product;
+      $product = $productModel->find( $params['id'] );
+      $productName = $product->getName();
+
+      unset($_SESSION['basket'][$productName]);
+
+      header('Location: ' . $router->generate('user-basket'));
     }
 
     public function bouquets()

@@ -41,6 +41,14 @@
     "main-item-post"
   );
 
+  // Suppression d'un article dans le panier
+  $router->map(
+    "GET",
+    "/basket/[i:id]",
+    [ 'controller' => "\\app\\controllers\\MainController", 'method' => 'itemDelete'],
+    "main-item-delete"
+  );
+
   // Route de la page des bouquets
   $router->map( 
     "GET",
