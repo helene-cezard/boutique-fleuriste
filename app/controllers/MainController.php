@@ -86,4 +86,14 @@ use app\models\User;
       $products = $productModel->findByCategory( 3 );
       $this->show('compositions', ['products' => $products]);
     }
+
+    public function contact()
+    {
+      $this->show('contact');
+    }
+
+    public function legal()
+    {
+      $this->show('legal');
+    }
   }

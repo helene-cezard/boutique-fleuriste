@@ -146,6 +146,10 @@ header {
     margin: auto;
 }
 
+.contact * {
+    margin: 1rem;
+}
+
 .accountModified {
     text-align: center;
     color: green;
@@ -179,29 +183,6 @@ header {
 .page-container {
     position: relative;
     min-height: 100vh;
-}
-  
-.content-wrap {
-    padding-bottom: 10rem;    /* Footer height */
-}
-
-footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 10rem;            /* Footer height */
-    font-size: 1.1rem;
-    background-color: lightgray;
-}
-
-.footer-links {
-    /* display: flex; */
-    width: fit-content;
-    margin: 2rem auto;
-}
-
-.footer-links__element {
-    margin: 1.2rem;
 }
 
 .basket {
@@ -237,6 +218,29 @@ footer {
     text-align: center;
 }
 
+.content-wrap {
+    padding-bottom: 10rem;    /* Footer height */
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 10rem;            /* Footer height */
+    font-size: 1.1rem;
+    background-color: lightgray;
+}
+
+.footer-links {
+    /* display: flex; */
+    width: fit-content;
+    margin: 2rem auto;
+}
+
+.footer-links__element {
+    margin: 1.2rem;
+}
+
 @media screen and (min-width: 370px) {
     .shop-name {
         font-size: 5rem;
@@ -245,6 +249,31 @@ footer {
     .flower-cards__element {
         border: solid 1px green;
         padding: 1rem;
+    }
+
+    .contact, .legal {
+        text-align: center;
+    }
+    
+    .contact img {
+        width: 50%;
+    }
+
+    .contact-section h3 {
+        font-weight: bold;
+    }
+
+    .contact-section {
+        padding: .2rem;
+    }
+
+    .legal * {
+        margin: 1rem;
+    }
+
+    .legal a:hover {
+        text-decoration: underline;
+        color: purple;
     }
 }
 
@@ -264,6 +293,15 @@ footer {
     
     footer {
         height: 6rem;            /* Footer height */
+    }
+
+    .contact {
+        display: flex;
+        justify-content: center;
+    }
+
+    .contact img {
+        width: 20%;
     }
 }
 

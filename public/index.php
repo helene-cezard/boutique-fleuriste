@@ -73,6 +73,22 @@
     "main-compositions"
   );
 
+  // Route de la page de contact
+  $router->map( 
+    "GET",
+    "/contact",
+    [ 'controller' => "\\app\\controllers\\MainController", 'method' => "contact" ],
+    "main-contact"
+  );
+
+  // Route de la page des mentions légales
+  $router->map( 
+    "GET",
+    "/legal",
+    [ 'controller' => "\\app\\controllers\\MainController", 'method' => "legal" ],
+    "main-legal"
+  );
+
   // Routes UserController ---------------------------------------------
 
   // Route de la page d'enregistrement d'un utilisateur
@@ -162,7 +178,6 @@
   {
     http_response_code( 404 );
     header('Location: ' . $router->generate('not-found'));
-    // exit( "Page non trouvée" );
   }
   
   // Informantions nécessaires au dispatcher
