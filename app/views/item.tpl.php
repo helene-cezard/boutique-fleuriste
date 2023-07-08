@@ -10,7 +10,12 @@
         <form class="order-form" action="" method="POST">
             <label class="quantity-label" for="quantity">Quantité</label>
             <input class="quantity-input" type="number" max="5" name="quantity" value="1" <?= $product->getStatus() == 1 ? "" : "disabled" ?>>
+
+            <?php if(isset($quantityError)) : ?>
             <p class="error"><?= $quantityError ?></p>
+            <?php endif ?>
+
+
             <input type="hidden" name="productId" value="<?= $product->getId() ?>">
             <p>Disponibilité : <?= $product->getStatus() == 1 ? "En stock" : "Indisponible"; ?></p>
             <button class="submit" type="submit">Ajouter au panier</button>
